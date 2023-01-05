@@ -35,7 +35,7 @@ function Post({id, username, userImg, img, caption}){
     useEffect(
         () =>
             onSnapshot(collection(db, "posts", id, "likes"), 
-            (snapshot) => setLikes(snapshot.dosc)
+            (snapshot) => setLikes(snapshot.docs)
             ),
         [db, id]
     );
@@ -43,7 +43,7 @@ function Post({id, username, userImg, img, caption}){
     useEffect(
         () => 
             setHasLiked(
-               (likes || []).findIndex((like) => like.id === session?.user?.uid) !==-1
+               likes.findIndex((like) => like.id === session?.user?.uid) !==-1
     ),
             
      [likes]
@@ -110,6 +110,11 @@ function Post({id, username, userImg, img, caption}){
             
 
             <p className="p-5 truncate">
+                {likes.length > 0 && (
+                    <p className="font-bold mb-1">{likes.length} likes</p>
+                )}
+
+
                 <span className="font-bold mr-1">{username} </span>
                 {caption}
             </p>

@@ -102,7 +102,7 @@ function Modal() {
                                 {selectedFile ? (
                                     <img 
                                         src={selectedFile} 
-                                        className="w-full object-contain cursor-pointer"
+                                        className="w-20 h-30 p-auto m-auto object-contain cursor-pointer"
                                         onClick={() => setSelectedFile(null)} 
                                         alt=" "
                                     />
