@@ -24,6 +24,6 @@ const db = getFirestore();
 const storage = getStorage();
 
 
-const analytics = getAnalytics(app);
+//const analytics = getAnalytics(app);
 
 export {app, db, storage};
